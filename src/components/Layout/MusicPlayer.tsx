@@ -6,6 +6,31 @@ import {
 import { usePlayerStore } from '@/store/usePlayerStore';
 import { useUIStore } from '@/store/useUIStore';
 import { cn } from './Sidebar';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
+function EqualizerVisualizer({ isPlaying }: { isPlaying: boolean }) {
+  return (
+    <div className="flex items-end gap-[3px] h-6 px-1">
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={isPlaying ? {
+            height: [6, 20, 10, 18, 6],
+          } : {
+            height: 6
+          }}
+          transition={{
+            duration: 0.8 + (i * 0.12),
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="w-[3px] bg-gradient-to-t from-primary to-secondary rounded-full"
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function MusicPlayer() {
   const { 
@@ -14,7 +39,8 @@ export default function MusicPlayer() {
     isShuffled, toggleShuffle, repeatMode, cycleRepeatMode
   } = usePlayerStore();
   
-  const { toggleLyrics, toggleQueue } = useUIStore();
+  const { toggleQueue } = useUIStore();
+  const navigate = useNavigate();
   
   // Simulated progress
   useEffect(() => {
@@ -49,7 +75,7 @@ export default function MusicPlayer() {
       <div className="absolute inset-0 bg-primary/5 opacity-50 pointer-events-none"></div>
 
       {/* Left: Song Info */}
-      <div className="flex items-center gap-4 w-1/3 min-w-0">
+      <div className="flex items-center gap-4 w-1/3 min-w-0 z-10">
         <div className="relative group w-14 h-14 rounded-md overflow-hidden premium-shadow cursor-pointer">
           <img 
             src={currentSong.coverUrl} 
@@ -61,18 +87,21 @@ export default function MusicPlayer() {
           </div>
         </div>
         <div className="min-w-0">
-          <h4 className="text-sm font-semibold text-white truncate hover:underline cursor-pointer">{currentSong.title}</h4>
+          <h4 className="text-sm font-semibold text-white truncate hover:underline cursor-pointer" onClick={() => navigate('/lyrics')}>{currentSong.title}</h4>
           <p className="text-xs text-zinc-400 truncate hover:underline cursor-pointer">{currentSong.artistName}</p>
         </div>
-        <button className="text-primary hover:text-primary-light ml-2 transition-colors">
-          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <button className="text-primary hover:text-primary-light transition-colors">
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+          <EqualizerVisualizer isPlaying={isPlaying} />
+        </div>
       </div>
 
       {/* Center: Controls */}
-      <div className="flex flex-col items-center justify-center w-1/3 max-w-2xl px-4">
+      <div className="flex flex-col items-center justify-center w-1/3 max-w-2xl px-4 z-10">
         <div className="flex items-center gap-6 mb-2">
           <button 
             onClick={toggleShuffle}
@@ -123,8 +152,8 @@ export default function MusicPlayer() {
       </div>
 
       {/* Right: Extra Controls */}
-      <div className="flex items-center justify-end gap-4 w-1/3 min-w-0">
-        <button onClick={toggleLyrics} className="p-2 rounded-full hover:bg-white/10 text-zinc-400 hover:text-white transition-colors">
+      <div className="flex items-center justify-end gap-4 w-1/3 min-w-0 z-10">
+        <button onClick={() => navigate('/lyrics')} className="p-2 rounded-full hover:bg-white/10 text-zinc-400 hover:text-white transition-colors">
           <Mic2 className="w-4 h-4" />
         </button>
         <button onClick={toggleQueue} className="p-2 rounded-full hover:bg-white/10 text-zinc-400 hover:text-white transition-colors">

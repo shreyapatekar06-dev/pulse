@@ -10,20 +10,36 @@ import MusicPlayer from '@/components/layout/MusicPlayer';
 import CommandPalette from '@/components/ui/CommandPalette';
 
 // Pages
-import Home from '@/pages/Home';
+import Landing from '@/pages/Landing';
+import Discover from '@/pages/Discover';
 import Search from '@/pages/Search';
-import Library from '@/pages/Library';
+import Artists from '@/pages/Artists';
 import Artist from '@/pages/Artist';
+import Albums from '@/pages/Albums';
 import Album from '@/pages/Album';
 import Playlist from '@/pages/Playlist';
+import Lyrics from '@/pages/Lyrics';
+import Profile from '@/pages/Profile';
+import Settings from '@/pages/Settings';
 
 function App() {
   const location = useLocation();
+  const isLandingPage = location.pathname === '/';
 
   // Scroll to top on route change
   useEffect(() => {
     document.getElementById('main-scroll-area')?.scrollTo(0, 0);
   }, [location.pathname]);
+
+  if (isLandingPage) {
+    return (
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Landing />} />
+        </Routes>
+      </AnimatePresence>
+    );
+  }
 
   return (
     <div className="flex h-screen w-full bg-background overflow-hidden relative">
@@ -43,12 +59,16 @@ function App() {
         >
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
+              <Route path="/discover" element={<Discover />} />
               <Route path="/search" element={<Search />} />
-              <Route path="/library" element={<Library />} />
+              <Route path="/artists" element={<Artists />} />
               <Route path="/artist/:id" element={<Artist />} />
+              <Route path="/albums" element={<Albums />} />
               <Route path="/album/:id" element={<Album />} />
               <Route path="/playlist/:id" element={<Playlist />} />
+              <Route path="/lyrics" element={<Lyrics />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </AnimatePresence>
         </main>
