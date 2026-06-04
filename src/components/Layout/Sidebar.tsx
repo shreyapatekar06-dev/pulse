@@ -1,6 +1,5 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Compass, Search, User, Disc, Mic2, FolderHeart, Settings, Play, Plus, Zap } from 'lucide-react';
+import { Compass, Search, User, Disc, Mic2, FolderHeart, Settings, Plus, Zap } from 'lucide-react';
 import { useUIStore } from '@/store/useUIStore';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';

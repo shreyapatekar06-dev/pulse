@@ -1,11 +1,9 @@
-import React from 'react';
 import { Search, Bell, ChevronLeft, ChevronRight, Menu } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUIStore } from '@/store/useUIStore';
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { toggleSidebar, toggleRightPanel, setCommandPaletteOpen } = useUIStore();
 
   return (

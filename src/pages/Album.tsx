@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { getAlbumById, mockSongs } from '@/data/mockData';
-import { Play, Heart, MoreHorizontal, Clock } from 'lucide-react';
+import { Play, Heart, MoreHorizontal } from 'lucide-react';
 import SongCard from '@/components/music/SongCard';
 
 export default function Album() {

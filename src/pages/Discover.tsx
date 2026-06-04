@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Sparkles, Heart, ChevronRight, Music, Play, User } from 'lucide-react';
+import { Sparkles, Heart, ChevronRight, Music, Play, User } from 'lucide-react';
 import { mockSongs, mockPlaylists, mockAlbums, mockArtists } from '@/data/mockData';
 import SongCard from '@/components/music/SongCard';
 import AlbumCard from '@/components/music/AlbumCard';
@@ -16,9 +16,8 @@ const genres = [
 ];
 
 export default function Discover() {
-  const { setQueue, setCurrentSong } = usePlayerStore();
+  const { setQueue } = usePlayerStore();
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
 
   // Set initial queue
   useEffect(() => {

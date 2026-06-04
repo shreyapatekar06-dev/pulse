@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { usePlayerStore } from '@/store/usePlayerStore';
 import { mockLyrics } from '@/data/mockData';
-import { Mic2, Music, Volume2, Play, Pause } from 'lucide-react';
-import { cn } from '@/components/layout/Sidebar';
+import { Mic2, Music, Play, Pause } from 'lucide-react';
+import { cn } from '@/components/Layout/Sidebar';
 
 export default function Lyrics() {
   const { currentSong, isPlaying, progress, togglePlay } = usePlayerStore();

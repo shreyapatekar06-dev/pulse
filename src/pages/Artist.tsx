@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { getArtistById, mockSongs, mockAlbums } from '@/data/mockData';
-import { Play, UserPlus, MoreHorizontal } from 'lucide-react';
+import { Play, MoreHorizontal } from 'lucide-react';
 import SongCard from '@/components/music/SongCard';
 import AlbumCard from '@/components/music/AlbumCard';
 

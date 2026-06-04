@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { getPlaylistById, mockSongs } from '@/data/mockData';
@@ -9,7 +8,7 @@ import { usePlayerStore } from '@/store/usePlayerStore';
 export default function Playlist() {
   const { id } = useParams();
   const playlist = getPlaylistById(id || 'p1') || getPlaylistById('p1');
-  const { setQueue, setCurrentSong, isPlaying } = usePlayerStore();
+  const { setQueue, setCurrentSong } = usePlayerStore();
 
   if (!playlist) return null;
 
