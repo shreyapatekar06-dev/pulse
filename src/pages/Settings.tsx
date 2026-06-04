@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Volume2, Shield, Bell, Eye, Headphones, Sparkles, Check, CheckSquare } from 'lucide-react';
+import { Shield, Bell, Headphones, Sparkles, Check } from 'lucide-react';
 
 export default function Settings() {
   const [audioQuality, setAudioQuality] = useState('ultra');

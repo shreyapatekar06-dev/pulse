@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { mockPlaylists, mockAlbums } from '@/data/mockData';
 import AlbumCard from '@/components/music/AlbumCard';
-import { Heart, Clock, Download } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 export default function Library() {
   return (

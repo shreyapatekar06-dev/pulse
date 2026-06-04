@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { mockSongs, mockPlaylists, mockAlbums } from '@/data/mockData';
 import SongCard from '@/components/music/SongCard';

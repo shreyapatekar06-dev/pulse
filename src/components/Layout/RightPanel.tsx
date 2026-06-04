@@ -1,8 +1,6 @@
-import React from 'react';
 import { Users, UserPlus, Play } from 'lucide-react';
 import { useUIStore } from '@/store/useUIStore';
 import { mockFriendActivity } from '@/data/mockData';
-import { cn } from './Sidebar';
 
 export default function RightPanel() {
   const isRightPanelOpen = useUIStore((state) => state.isRightPanelOpen);

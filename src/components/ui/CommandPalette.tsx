@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Search, Music, User, LayoutList } from 'lucide-react';
 import { useUIStore } from '@/store/useUIStore';
 import { AnimatePresence, motion } from 'framer-motion';

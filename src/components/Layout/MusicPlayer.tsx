@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { 
   Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, 
   Volume2, VolumeX, Mic2, ListMusic, Maximize2, Repeat1
@@ -34,7 +34,7 @@ function EqualizerVisualizer({ isPlaying }: { isPlaying: boolean }) {
 
 export default function MusicPlayer() {
   const { 
-    currentSong, isPlaying, togglePlay, progress, setProgress,
+    currentSong, isPlaying, togglePlay, progress,
     volume, setVolume, nextSong, prevSong,
     isShuffled, toggleShuffle, repeatMode, cycleRepeatMode
   } = usePlayerStore();

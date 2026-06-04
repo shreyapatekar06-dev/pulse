@@ -1,4 +1,3 @@
-import React from 'react';
 import { Play } from 'lucide-react';
 import { Album, Playlist } from '@/types';
 import { useNavigate } from 'react-router-dom';

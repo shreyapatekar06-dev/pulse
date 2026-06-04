@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Layout
-import Sidebar from '@/components/layout/Sidebar';
-import Navbar from '@/components/layout/Navbar';
-import RightPanel from '@/components/layout/RightPanel';
-import MusicPlayer from '@/components/layout/MusicPlayer';
+import Sidebar from '@/components/Layout/Sidebar';
+import Navbar from '@/components/Layout/Navbar';
+import RightPanel from '@/components/Layout/RightPanel';
+import MusicPlayer from '@/components/Layout/MusicPlayer';
 import CommandPalette from '@/components/ui/CommandPalette';
 
 // Pages

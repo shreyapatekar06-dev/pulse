@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Clock, Flame, Music, Heart, ChevronRight, Share2, Settings } from 'lucide-react';
+import { Award, Clock, Flame, Heart, ChevronRight, Share2, Settings } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { mockSongs, mockArtists, mockPlaylists } from '@/data/mockData';
+import { mockArtists, mockPlaylists } from '@/data/mockData';
 import { useNavigate } from 'react-router-dom';
 
 const statsData = [

@@ -1,8 +1,7 @@
-import React from 'react';
 import { Play, Heart, MoreHorizontal } from 'lucide-react';
 import { Song } from '@/types';
 import { usePlayerStore } from '@/store/usePlayerStore';
-import { cn } from '../layout/Sidebar';
+import { cn } from '../Layout/Sidebar';
 
 interface SongCardProps {
   song: Song;

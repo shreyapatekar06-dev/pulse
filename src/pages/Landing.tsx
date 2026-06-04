@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
-import { Play, Shield, Zap, Sparkles, Award, Star, Compass, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Play, Zap, Sparkles, Award, Star, Compass, ArrowRight } from 'lucide-react';
 
 const floatingCovers = [
   'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=200',

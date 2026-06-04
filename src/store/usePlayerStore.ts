@@ -26,7 +26,7 @@ interface PlayerState {
   cycleRepeatMode: () => void;
 }
 
-export const usePlayerStore = create<PlayerState>((set, get) => ({
+export const usePlayerStore = create<PlayerState>((set) => ({
   currentSong: null,
   isPlaying: false,
   volume: 0.8,
